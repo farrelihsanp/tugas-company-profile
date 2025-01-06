@@ -1,12 +1,11 @@
 import { getEntries } from "@/utils/get-contentful-data";
 import Image from "next/image";
+import { ContentfulPost } from "../../types/contentful";
 
 export default async function Testimonials() {
-  const testimonials = await getEntries({
+  const testimonials = (await getEntries({
     content_type: "testimonialSection",
-  });
-
-  console.log(testimonials);
+  })) as unknown as ContentfulPost[];
 
   return (
     <section className="py-12 bg-gray-100">
@@ -22,7 +21,6 @@ export default async function Testimonials() {
             >
               <div className="flex justify-center mb-4">
                 <div className="relative w-32 h-32">
-                  {" "}
                   <Image
                     src={`https:${testimonial.fields.avatar.fields.file.url}`}
                     alt={testimonial.fields.name}
@@ -40,7 +38,7 @@ export default async function Testimonials() {
               </p>
               <div className="mt-4">
                 <p className="text-gray-800 text-center">
-                  {testimonial.fields.description.content[0].content[0].value}
+                  {testimonial.fields.description}
                 </p>
               </div>
             </div>

@@ -1,13 +1,12 @@
 import { getEntries } from "@/utils/get-contentful-data";
 import Image from "next/image";
 import Link from "next/link";
+import { ContentfulPost } from "../../types/contentful";
 
 export default async function ProductServices() {
-  const services = await getEntries({
+  const services = (await getEntries({
     content_type: "designService",
-  });
-
-  console.log(services);
+  })) as unknown as ContentfulPost[];
 
   if (!services || services.length === 0) {
     return (
@@ -23,16 +22,15 @@ export default async function ProductServices() {
 
   return (
     <section className="py-10 bg-gray-100">
-      {/* ARCHITECTURAL DESIGN SERVICES */}
       <div className="container mx-auto px-4">
         <h2 className="text-5xl font-bold text-center mb-8">
           Architectural Design Services
         </h2>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {services.map((service) => (
+          {services.map((service, index) => (
             <div
-              key={service.sys.id}
+              key={index}
               className="relative w-full h-72 bg-white rounded-lg shadow-lg overflow-hidden transition-transform transform hover:scale-105"
             >
               <Link href={`/services/${service.fields.slug}`}>

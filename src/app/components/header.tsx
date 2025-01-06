@@ -1,11 +1,27 @@
 import Link from "next/link";
+import { getEntries } from "@/utils/get-contentful-data";
+import { ContentfulPost } from "../types/contentful";
+import Image from "next/image";
 
-export default function Header() {
+export default async function Header() {
+  const logoHeader = (await getEntries({
+    content_type: "companyLogo",
+  })) as unknown as ContentfulPost[];
+
   return (
     <header className="flex max-w-[1100px] mx-auto items-center justify-between gap-3 px-5 py-8 text-sm">
       <div className="flex items-baseline gap-1">
         <div className="text-3xl font-raleway font-semibold text-black p-2 lg:text-4xl">
-          <Link href="/">PURFA DESIGN</Link>
+          <Link href="/">
+            <div>
+              <Image
+                src={`https:${logoHeader[0]?.fields.logo.fields.file.url}`}
+                alt="Company Logo"
+                width={200}
+                height={200}
+              />
+            </div>
+          </Link>
         </div>
       </div>
 

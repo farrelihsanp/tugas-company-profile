@@ -1,5 +1,6 @@
 import { getEntries } from "@/utils/get-contentful-data";
 import Image from "next/image";
+import { ContentfulPost } from "../../types/contentful";
 
 export default async function DetailServices({
   params,
@@ -7,10 +8,10 @@ export default async function DetailServices({
   params: { slug: string };
 }) {
   const slug = (await params).slug;
-  const services = await getEntries({
+  const services = (await getEntries({
     content_type: "designService",
     fields_slug: slug,
-  });
+  })) as unknown as ContentfulPost[];
 
   if (!services || services.length === 0) {
     return (
@@ -24,7 +25,7 @@ export default async function DetailServices({
   const fields = service.fields;
 
   return (
-    <div className="min-h-screen flex flex-col items-center justify-center bg-gray-50 p-8">
+    <section className="min-h-screen flex flex-col items-center justify-center bg-gray-50 p-8">
       <div className="bg-white rounded-lg overflow-hidden w-full max-w-2xl">
         <div className="relative h-96">
           <Image
@@ -53,6 +54,6 @@ export default async function DetailServices({
           </div>
         </div>
       </div>
-    </div>
+    </section>
   );
 }

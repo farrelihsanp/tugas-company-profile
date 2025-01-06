@@ -1,19 +1,18 @@
 import { getEntries } from "@/utils/get-contentful-data";
 import Image from "next/image";
+import { ContentfulPost } from "../../types/contentful";
 
 export default async function AboutUs() {
-  const about = await getEntries({
+  const about = (await getEntries({
     content_type: "companyOverview",
-  });
+  })) as unknown as ContentfulPost[];
 
-  const teams = await getEntries({
+  const teams = (await getEntries({
     content_type: "teams",
-  });
-
-  console.log(about);
+  })) as unknown as ContentfulPost[];
 
   return (
-    <div className="container mx-auto px-4 py-10">
+    <section className="container mx-auto px-4 py-10">
       <div className="grid grid-cols-1 md:grid-cols-2 gap-4 items-center">
         <div className="flex flex-col justify-center gap-4">
           <div>
@@ -32,7 +31,7 @@ export default async function AboutUs() {
         <div className="flex justify-center">
           <Image
             src={`https:${about[0].fields.images[1].fields.file.url}`}
-            alt="farrel"
+            alt={about[0].fields.images[1].fields.title}
             width={500}
             height={500}
             className="object-cover rounded-lg shadow-lg"
@@ -43,7 +42,7 @@ export default async function AboutUs() {
         <div className="flex flex-col md:flex-row justify-around text-center mt-24">
           <div className="mb-4 md:mb-0">
             <h2 className="text-5xl md:text-6xl font-bold">30</h2>
-            <p className="text-gray-600">Year's Experience</p>
+            <p className="text-gray-600">Years Experience</p>
           </div>
           <div className="mb-4 md:mb-0">
             <h2 className="text-5xl md:text-6xl font-bold">150+</h2>
@@ -91,6 +90,6 @@ export default async function AboutUs() {
           </div>
         ))}
       </div>
-    </div>
+    </section>
   );
 }

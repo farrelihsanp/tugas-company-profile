@@ -1,12 +1,11 @@
 import { getEntries } from "@/utils/get-contentful-data";
 import Image from "next/image";
+import { ContentfulPost } from "../types/contentful";
 
 export default async function Teams() {
-  const teams = await getEntries({
+  const teams = (await getEntries({
     content_type: "teams",
-  });
-
-  console.log(teams);
+  })) as unknown as ContentfulPost[];
 
   return (
     <section className="py-12 bg-gray-50">

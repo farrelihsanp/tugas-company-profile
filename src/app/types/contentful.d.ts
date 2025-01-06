@@ -1,7 +1,6 @@
-import { Document } from "@contentful/rich-text-types";
-
 export interface ContentfulImage {
   fields: {
+    title: string;
     file: {
       url: string;
     };
@@ -21,8 +20,15 @@ export interface ContentfulCategories {
 
 export interface ContentfulPost {
   fields: {
+    titleService: string;
+    companyName: string;
+    caption: string;
+    Mission: string;
+    Vision: string;
+    culture: string;
     title: string;
     slug: string;
+    images: ContentfulImage[];
     image: ContentfulImage;
     categories: ContentfulCategories[];
     description: string;
@@ -35,9 +41,13 @@ export interface ContentfulPost {
     new: boolean;
     Featured: boolean;
     tags: string[];
-    tagsColor: string;
-    tagsIcon: string;
     value: string;
     content: [];
+    logo: ContentfulImage;
+    avatar: ContentfulImage;
+    name: string;
+    job: string;
+    price: string;
+    revision: string;
   };
 }

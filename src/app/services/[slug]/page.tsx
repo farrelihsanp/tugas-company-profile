@@ -5,7 +5,7 @@ import { ContentfulPost } from "../../types/contentful";
 export default async function DetailServices({
   params,
 }: {
-  params: { slug: string };
+  params: Promise<{ slug: string }>;
 }) {
   const slug = (await params).slug;
   const services = (await getEntries({

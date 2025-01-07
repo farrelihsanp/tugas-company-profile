@@ -40,13 +40,15 @@ export default async function DetailServices({
           <h1 className="text-3xl font-bold text-gray-800 mb-2">
             {fields.titleService}
           </h1>
-          <p className="text-lg font-semibold text-black mb-2">
+          <p className="text-1xl font-semibold text-black mb-2">
             Price: {fields.price}
           </p>
-          <p className="text-md text-gray-600 mb-2">
-            Revision: {fields.revision}
+          <p className="text-lg mt-4">Revision: {fields.revision}</p>
+          <p className="text-lg">
+            Testimonial: 941/1000 customers are satisfied with the service we
+            provide
           </p>
-          <p className="text-gray-700 mb-4">{fields.description}</p>
+          <p className="text-gray-700 mb-4 mt-6">{fields.description}</p>
           <div className="flex justify-center mt-7">
             <button className="px-6 py-2 bg-black text-white rounded-lg shadow hover:scale-105 transition duration-200">
               Book Now

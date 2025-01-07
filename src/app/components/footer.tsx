@@ -10,7 +10,7 @@ export default async function Footer() {
 
   return (
     <footer className="fixed-bottom mx-auto flex max-w-[1100px] flex-col items-center justify-between gap-3 px-5 py-8 text-sm sm:flex-row position-fixed">
-      <div className="flex text-1xl font-raleway font-semibold text-black p-2 transition duration-300">
+      <div className="flex text-1xl font-raleway font-semibold text-black p-2 transition duration-300 ">
         <Link href="/">
           <div>
             <Image
@@ -21,6 +21,7 @@ export default async function Footer() {
             />
           </div>
         </Link>
+        <p className="flex items-center px-3">#PurfaDesignBestConsultant</p>
       </div>
 
       <nav className="order-1 sm:order-2">

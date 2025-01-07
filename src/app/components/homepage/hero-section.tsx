@@ -24,19 +24,23 @@ export default async function HeroSection() {
       <div className="absolute inset-0 bg-black opacity-50"></div>
       <div className="container relative z-10 flex flex-col items-center mx-auto space-y-8 text-white text-center lg:flex-row lg:space-y-0 lg:space-x-12 justify-center">
         <div className="w-full lg:w-1/2 flex flex-col items-center justify-center text-center">
-          <h1 className="text-9xl font-bold tracking-wide leading-tight">
+          <h1 className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl xl:text-9xl font-bold tracking-wide leading-tight">
             {hero[0]?.fields?.companyName}
           </h1>
-          <p className="mt-4 text-5xl">{hero[0]?.fields?.caption}</p>
+          <p className="mt-4 text-3xl sm:text-4xl md:text-5xl">
+            {hero[0]?.fields?.caption}
+          </p>
           <div className="mt-6 space-y-4">
-            <p className="text-base">{hero[0]?.fields?.description}</p>
+            <p className="text-base sm:text-lg md:text-xl">
+              {hero[0]?.fields?.description}
+            </p>
           </div>
           <div className="flex flex-col gap-4 mt-6 sm:flex-row justify-center">
             <Link
               href="/about-us"
               className="px-6 py-3 text-white bg-black rounded-md shadow-lg transition duration-300 hover:scale-105"
             >
-              View More
+              About Us
             </Link>
             <Link
               href="/services"

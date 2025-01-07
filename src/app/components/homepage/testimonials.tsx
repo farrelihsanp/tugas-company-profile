@@ -20,13 +20,13 @@ export default async function Testimonials() {
               className="bg-white p-6 rounded-lg shadow-lg transition-transform transform hover:scale-105"
             >
               <div className="flex justify-center mb-4">
-                <div className="relative w-32 h-32">
+                <div className="relative w-32 h-32 ">
                   <Image
                     src={`https:${testimonial.fields.avatar.fields.file.url}`}
                     alt={testimonial.fields.name}
                     layout="fill"
                     objectFit="cover"
-                    className="rounded-full border-4 border-gray-300 shadow-md"
+                    className="rounded-full border-8 border-gray-black"
                   />
                 </div>
               </div>

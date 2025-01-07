@@ -70,7 +70,7 @@ export default async function AboutUs() {
         {teams.map((child, index) => (
           <div
             key={index}
-            className="bg-white p-6 rounded-lg shadow-lg transition hover:scale-105 border-4"
+            className="bg-white p-6 rounded-lg shadow-lg transition hover:scale-105 border-4 flex flex-col items-center justify-between sm:w-48"
           >
             <div className="flex justify-center mb-6">
               <div className="relative w-24 h-24 md:w-36 md:h-36">
